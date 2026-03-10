@@ -1,46 +1,57 @@
-3 ways to Change Directories to Home
+**3 ways to Change Directories to Home**
 1. cd $HOME
 2. cd ~
 3. cd ../../../
 
-How to list files in /bin starting with certain letters
+**How to list files in /bin starting with certain letters**
 1. ls /bin/c* ls /bin/ | grep '^c'
 Command to find the line number in your history
-1. ls /bin/c* | ws -l
+2. ls /bin/c* | ws -l
 
-How to navigate to home and list contents of a directory from there
+**How to navigate to home and list contents of a directory from there**
 1. ls -F gen711-811/shell_data/untrimmed_fastq/
 
-Navigate to a directory an list hidden directories
+**Navigate to a directory an list hidden directories**
 1. ls --all .hidden/
 2. ls -a
 3. ls -la
 4. ls -laF (long format, include security settings for files)
 5. ls .*
 
-Find the line number in your history for the command that listed .sh files in /user/bin
+**Find the line number in your history for the command that listed .sh files in /user/bin**
 1. ls /usr/bin/*.sh
 2. ls /usr/binc* | wc -l
 
-Print out the contents of a .fastq file, find the last line
+**Print out the contents of a .fastq file, find the last line**
 1. cat NAME.fastq
 2. tail -n1 NAME.fastq (or use -n4 if you want the full read of fastq file)
 
-In a .fastq file, find the next nucleotides after the first instance of TTTT
+**In a .fastq file, find the next nucleotides after the first instance of TTTT**
 1. less NAME.fasta 
 2. less -S NAME.fasta /TTTT
 3. grep 'TTTT' *fastq
 
-Format of file permissions
-1. (file type)(user)(group)(other)
-2. rwx is read, write, execute permissions
+**Format of file permissions**
+* (file type)(user)(group)(other)
+* rwx is read, write, execute permissions
 
-View and change file permissions
+**View and change file permissions**
 1. ls -l (to view)
-2. chmod
+2. chmod (permission) FILE.fastq
+3. adding -w will make the file write-protected
+4. adding ug+rwx specifies user and group and gives rwx permissions
 
-Create backups of fastq files
+**Create backups of fastq files**
 1. mkdir backup
 2. cp NAMEofFILE NEWNAMEofCOPY
 3. mc *backup.fastq backup/
 
+**How to find size of fastq file**
+* ls -l -h
+
+**Load a conda environment and find where a program called 'fastqc' is stored**
+1. activate genomics (load conda called genomics)
+
+///////////////////
+fastqc *.fastq*
+///////////////////
