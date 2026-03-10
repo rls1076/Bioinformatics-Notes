@@ -179,3 +179,33 @@ head -n 2 ${filename}
 
 done
 ```
+
+**Based on metadata, how many different generations exist in the data**
+
+```
+cut -f2 -d',' Ecoli_metadata_compoite.csv | sort | uniq | grep -v 'gen' | wc -l
+```
+
+* -f2 refers to the column that contains generations, -d refers to what pint the data is being considered up to, the file name with the data is listed, unique 'gen' is being searched for 
+
+**Based on metadata, how many rows and columns are in this data**
+
+```
+head -n1 Ecoli_metadata_composite.csv | tr ',' '\n' | wc -l
+```
+
+**Based on metadata, how many citrate+ mutants have been recorded in Ara-3?**
+
+```
+cut -f12 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
+```
+
+**Based on metadata, how many hypermutable mutants have been recorded in Ara-3**
+
+```
+grep 'plus' Ecoli_metadata_composite.csv | wc -l
+
+cut -f6 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
+
+```
+
