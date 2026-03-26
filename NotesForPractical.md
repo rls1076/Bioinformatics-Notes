@@ -38,6 +38,12 @@ ls -F gen711-811/shell_data/untrimmed_fastq/
 1. cat NAME.fastq
 2. tail -n1 NAME.fastq (or use -n4 if you want the full read of fastq file)
 
+* To view the first lines instead of the last
+
+```
+head -n4 NAME.fastq
+```
+
 **In a .fastq file, find the next nucleotides after the first instance of TTTT**
 1. less NAME.fasta 
 2. less -S NAME.fasta /TTTT
@@ -75,7 +81,7 @@ ls -l -h
 ```
 
 **Load a conda environment and find where a program called 'fastqc' is stored**
-1. activate genomics (load conda called genomics)
+1. activate genomics (this loads conda called genomics)
 
 ```
 fastqc *.fastq*
@@ -208,4 +214,60 @@ grep 'plus' Ecoli_metadata_composite.csv | wc -l
 cut -f6 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
 
 ```
+**Commnds to get practical exxam pasted into vscode**
 
+```
+
+```
+**From the home directory, make a new directory called 'name'***
+
+```
+mkdir ~/name
+```
+**Command to copy a fastq file named Sample1.fasta directly into a directory called 'name' without chaning current directory**
+
+Create separate copy of file, then move to 'name' directory
+
+```
+cp Sample1.fastq Sample1COPY.fastq
+
+mc *COPY.fastq name/
+```
+Directly copy into directory
+
+```
+cp [absolute path to source files]Sample1.fastq name/
+```
+
+**Absolute path to change current working directory to 'name' folder/directory***
+
+* Fill in '...' with directory path
+```
+cd /home/username/..../name
+```
+**Command to search how many reads have 15 or more uncalled bases in multiple samples and count the number of reads without making a new file**
+
+```
+grep 'NNNNN' *.fastq | wc -l
+```
+
+**Command to make a new directory called 'name' in current directory, then move fasta files in**
+
+```
+mkdir name
+
+mv Sample1.fasta Sample2.fasta to_blast/
+```
+**Without changing directories, command to confirm files made it into 'name' folder**
+
+* general list
+
+```
+ls to_blast
+```
+
+* detailed list
+
+```
+ls -l to_blast
+```
