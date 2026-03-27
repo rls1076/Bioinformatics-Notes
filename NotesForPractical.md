@@ -1,7 +1,7 @@
 ### Notes for Practical #1
 
 **Forking and Cloning a Repository**
-1. Ope the repository and hit fork button
+1. Open the repository and hit fork button
 2. Go to own GitHub page, overview, repositories
 3. Open forked repository, click on it, click '<>Code' button, copy HTTPS address of the clone
 4. Open a terminal connected to RON in vscode
@@ -305,6 +305,6 @@ md5sum Sample1.fasta > my_md5sums.txt
 
 **Add a line of text to the end of an existing text file**
 
-``
+```
 echo "Rachael" >> filename.txt
 ```
