@@ -1,5 +1,13 @@
 ### Notes for Practical #1
 
+**Forking and Cloning a Repository**
+1. Ope the repository and hit fork button
+2. Go to own GitHub page, overview, repositories
+3. Open forked repository, click on it, click '<>Code' button, copy HTTPS address of the clone
+4. Open a terminal connected to RON in vscode
+5. enter git clone https://github.com/USERNAME/reponame.git
+6. Use ls to confirm the clone
+
 **3 ways to Change Directories to Home**
 1. cd $HOME
 2. cd ~
@@ -219,12 +227,13 @@ cut -f6 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
 ```
 
 ```
-**From the home directory, make a new directory called 'name'***
+**From the home directory, make a new directory called 'name'**
 
 ```
 mkdir ~/name
 ```
-**Command to copy a fastq file named Sample1.fasta directly into a directory called 'name' without chaning current directory**
+
+**Command to copy a fastq file named Sample1.fasta into a directory called 'name' without changing current directory**
 
 Create separate copy of file, then move to 'name' directory
 
@@ -245,6 +254,16 @@ cp [absolute path to source files]Sample1.fastq name/
 ```
 cd /home/username/..../name
 ```
+
+**When making new fasta files from fastq files**
+1. view first two lines of fastq reads (header & sequence)
+2. get rid of separators 
+3. Redirect output in new files with a different extensions
+
+```
+grep -A 1 --no-group-separator  "@SRR09" filename.fastq > newfile.fasta
+```
+
 **Command to search how many reads have 15 or more uncalled bases in multiple samples and count the number of reads without making a new file**
 
 ```
@@ -256,18 +275,36 @@ grep 'NNNNN' *.fastq | wc -l
 ```
 mkdir name
 
-mv Sample1.fasta Sample2.fasta to_blast/
+mv Sample1.fasta Sample2.fasta name/
 ```
 **Without changing directories, command to confirm files made it into 'name' folder**
 
 * general list
 
 ```
-ls to_blast
+ls name
 ```
 
 * detailed list
 
 ```
-ls -l to_blast
+ls -l name
+```
+
+**Command to see 100th line of a file**
+
+```
+head -n 100 Sample1.fasta | tail -n 1
+```
+
+**Run (command) on Sample1.fasta, run again and redirect output to a new file**
+
+```
+md5sum Sample1.fasta > my_md5sums.txt
+```
+
+**Add a line of text to the end of an existing text file**
+
+``
+echo "Rachael" >> filename.txt
 ```
